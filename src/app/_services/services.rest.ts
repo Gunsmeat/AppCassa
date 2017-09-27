@@ -9,7 +9,8 @@ export class ServicesRest {
   //URL-адрес REST сервера
   //restUrl: string = "http://192.168.0.10:8080/erkc/";
   //restUrl: string = "http://192.168.0.99:8080/CasaTestRest_war/";
-  restUrl: string = "http://192.168.0.98:8088/CasaTestRest_war/";
+  //restUrl: string = "http://192.168.0.98:8088/CasaTestRest_war/";
+  restUrl: string = "http://217.13.217.252:8088/CasaTestRest_war/";
 
   constructor(private http: Http) {
 
