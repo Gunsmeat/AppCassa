@@ -1,0 +1,42 @@
+<div class="modal">
+  <input class="modal-open" id="modal-pays" type="checkbox" hidden>
+  <div class="modal-wrap" aria-hidden="true" role="dialog">
+    <label class="modal-overlay" for="modal-pays"></label>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2>Нормативы лицевого счета <b>№ {{accId}}</b></h2>
+        <label class="btn-close" for="modal-pays" aria-hidden="true">×</label>
+      </div>
+      <div *ngIf="(accPays != undefined)" class="modal-body">
+        <table width="100%" border="1">
+          <tbody>
+          <tr>
+            <th scope="col" align="center">Дата платежа</th>
+            <th scope="col" align="center">№ квитанции</th>
+            <th scope="col" align="center">№ кассы</th>
+            <th scope="col" align="center">Тип оплаты</th>
+            <th scope="col" align="center">Статус платежа</th>
+            <th scope="col" align="center">Кассир</th>
+            <th scope="col" align="center">Код платежа</th>
+            <th scope="col" align="center">Сумма платежа</th>
+          </tr>
+          <tr *ngFor="let pays of accPays; let i = index; let e = even;" [style.background] = "e ? 'lightgray' : ''">
+            <td align="center">{{pays.date_pay}}</td>
+            <td align="center">{{pays.npp}}</td>
+            <td align="center">{{pays.cassa_id}}</td>
+            <td align="left">{{pays.type_pay}}</td>
+            <td align="left">{{pays.status}}</td>
+            <td align="left">{{pays.user_name}}</td>
+            <td align="right">{{pays.pay_id}}</td>
+            <td align="right">{{pays.sum_pay.toFixed(2)}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <label class="btn btn-primary" for="modal-pays">Закрыть</label>
+      </div>
+    </div>
+  </div>
+</div>
+

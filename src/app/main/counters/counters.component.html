@@ -1,0 +1,47 @@
+<div class="modal">
+  <input class="modal-open" id="modal-cnt" type="checkbox" hidden>
+  <div class="modal-wrap" aria-hidden="true" role="dialog">
+    <label class="modal-overlay" for="modal-cnt"></label>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2>Счетчики лицевого счета <b>№ {{accId}}</b></h2>
+        <label class="btn-close" for="modal-cnt" aria-hidden="true">×</label>
+      </div>
+      <div *ngIf="(accCnt != undefined)" class="modal-body">
+        <table width="100%" border="1">
+          <tbody>
+          <tr>
+            <th scope="col" align="center">Услуга</th>
+            <th scope="col" align="center">Поставщик</th>
+            <th scope="col" align="center">Место установки</th>
+            <th scope="col" align="center">№ счетчика</th>
+            <th scope="col" align="center">Предыдущее</th>
+            <th scope="col" align="center">Оплаченное</th>
+            <th scope="col" align="center">Объем</th>
+            <th scope="col" align="center">Тариф</th>
+            <th scope="col" align="center">Коэф.</th>
+            <th scope="col" align="center">Дата открытия</th>
+            <th scope="col" align="center">Дата закрытия</th>
+          </tr>
+          <tr *ngFor="let cnt of accCnt; let i = index; let e = even;" [style.background] = "e ? 'lightgray' : ''">
+            <td align="left">{{cnt.srv_name}}</td>
+            <td align="left">{{cnt.sup_name}}</td>
+            <td align="center">{{cnt.pic_name}}</td>
+            <td align="center">{{cnt.cnt_no}}</td>
+            <td align="right">{{cnt.val_prev}}</td>
+            <td align="right">{{cnt.val_last}}</td>
+            <td align="right">{{cnt.qty}}</td>
+            <td align="right">{{cnt.trf_norm.toFixed(2)}}</td>
+            <td align="right">{{cnt.koef}}</td>
+            <td align="center">{{cnt.date_open}}</td>
+            <td align="center">{{cnt.date_close}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <label class="btn btn-primary" for="modal-cnt">Закрыть</label>
+      </div>
+    </div>
+  </div>
+</div>

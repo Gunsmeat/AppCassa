@@ -1,0 +1,75 @@
+<div class="modal">
+  <input class="modal-open" id="modal-payment" type="checkbox" hidden>
+  <div class="modal-wrap" aria-hidden="true" role="dialog">
+    <label class="modal-overlay" for="modal-payment"></label>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <table width="100%" border="0">
+          <tbody>
+          <tr>
+            <td>
+              <table width="100%" border="0">
+                <tbody>
+                <tr>
+                  <td>Лицевой счет</td>
+                  <td></td>
+                  <td><button>Норматив</button></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td><button>Добавить усл.</button></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                </tbody>
+              </table>
+            </td>
+            <td><table width="100%" border="0">
+              <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="4">
+                <form name="pay_range">
+                  <fieldset> <legend><b>Период оплаты</b></legend>
+                    <input type="radio" name="pay_range">Вх. долг
+                    <input type="radio" name="pay_range">Норматив
+                    <input type="radio" name="pay_range">Исх. долг
+                    <input type="radio" name="pay_range">Аванс
+                  </fieldset>
+                </form>
+                <td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><label class="btn btn-primary" for="modal-payment">Счетчики</label></td>
+                <td><label class="btn btn-primary" for="modal-payment">Оплатить все</label></td>
+                <td><label class="btn btn-primary" for="modal-payment">Очистить все</label></td>
+                <td><label class="btn btn-primary" for="modal-payment">Закрыть</label></td>
+              </tr>
+              </tbody>
+            </table></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <label class="btn btn-primary" for="modal-payment">Закрыть</label>
+      </div>
+    </div>
+  </div>
+</div>
+

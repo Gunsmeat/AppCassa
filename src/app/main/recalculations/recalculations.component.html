@@ -1,0 +1,37 @@
+<div class="modal">
+  <input class="modal-open" id="modal-recalc" type="checkbox" hidden>
+  <div class="modal-wrap" aria-hidden="true" role="dialog">
+    <label class="modal-overlay" for="modal-recalc"></label>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2>Перерасчеты лицевого счета <b>№ {{accId}}</b></h2>
+        <label class="btn-close" for="modal-recalc" aria-hidden="true">×</label>
+      </div>
+      <div *ngIf="(accRecalc != undefined)" class="modal-body">
+        <table width="100%" border="1">
+          <tbody>
+          <tr>
+            <th scope="col" align="center">Услуга</th>
+            <th scope="col" align="center">Поставщик</th>
+            <th scope="col" align="center">Дата перерасчета</th>
+            <th scope="col" align="center">Период перерасчета</th>
+            <th scope="col" align="center">Сумма</th>
+            <th scope="col" align="center">Основание</th>
+          </tr>
+          <tr *ngFor="let recalc of accRecalc; let i = index; let e = even;" [style.background] = "e ? 'lightgray' : ''">
+            <td align="left">{{recalc.srv_name}}</td>
+            <td align="left">{{recalc.sup_name}}</td>
+            <td align="center">{{recalc.date_change}}</td>
+            <td align="center">{{recalc.date_range}}</td>
+            <td align="right">{{recalc.sum_change.toFixed(2)}}</td>
+            <td align="left">{{recalc.description}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <label class="btn btn-primary" for="modal-recalc">Закрыть</label>
+      </div>
+    </div>
+  </div>
+</div>

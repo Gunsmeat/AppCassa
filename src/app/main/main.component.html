@@ -1,0 +1,96 @@
+<table width="100%" border="1">
+  <tbody>
+  <tr>
+    <td>Лицевой счет</td>
+    <td><input type="number" name="accId" autofocus required id="acc_id" placeholder="Введите лицевой счет" tabindex="0" [(ngModel)]="accId"></td>
+    <td><label title="Поиск" class="btn" width="10%" (click)="getAccInfo()"><b>Поиск</b></label></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="5"><input *ngIf="(this.accInfo!=undefined)" value="{{this.accInfo.dst_name}}" name="dstName" type="text" id="dst_name" readonly></td>
+    <td><input *ngIf="(this.accInfo!=undefined)" value="{{this.accInfo.obj_id}}" name="objId" type="number" id="obj_id" readonly></td>
+  </tr>
+  <tr>
+    <td>Новый л/счет</td>
+    <td><input *ngIf="(this.accInfo!=undefined)" value="{{this.accInfo.ls_n}}" name="lsN" type="number" id="ls_n" readonly></td>
+    <td colspan="3"><input *ngIf="(this.accInfo!=undefined)" value="{{this.accInfo.gis_id}}" name="gisId" type="text" id="gisId" readonly></td>
+    <td><input *ngIf="(this.accInfo!=undefined)" value="{{this.accInfo.str_name}}" name="strName" type="text" id="str_name" readonly></td>
+    <td><input *ngIf="(this.accInfo!=undefined)" value="{{this.accInfo.house}}" name="house" type="text" id="house" readonly></td>
+    <td>корп.</td>
+    <td><input *ngIf="(this.accInfo!=undefined)" value="{{this.accInfo.krps}}" name="krps" type="text" id="krps" readonly></td>
+    <td>кв.</td>
+    <td><input *ngIf="(this.accInfo!=undefined)" value="{{this.accInfo.flat}}" name="flat" type="text" id="flat" readonly></td>
+  </tr>
+  <tr>
+    <td><div *ngIf="(this.isDoc)">Документ №</div></td>
+    <td><input *ngIf="(this.isDoc)" value="{{this.accInfo.doc_id}}" name="upd_id" type="text" id="upd_id" readonly></td>
+    <td><div *ngIf="(this.isDoc)"><a text-decoration="none" class="btn" target="_blanc" href="{{this.updUrl}}"><b>Документ</b></a></div></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="6"><input *ngIf="(this.accInfo!=undefined)" value="{{this.accInfo.moh_name}}" name="mohName" type="text" id="moh_name" tabindex="0" readonly></td>
+  </tr>
+  <tr>
+    <td>Текущий период</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="6">&nbsp;</td>
+  </tr>
+  </tbody>
+</table>
+<br>
+<table width="100%" border="1">
+  <tbody>
+  <tr>
+    <th scope="col" align="center">Услуга</th>
+    <th scope="col" align="center">Поставщик</th>
+    <th scope="col" align="center">&nbsp;</th>
+    <th scope="col" align="center">Вх. остаток</th>
+    <th scope="col" align="center">Перерасчет</th>
+    <th scope="col" align="center">Оплачено</th>
+    <th scope="col" align="center">К оплате</th>
+    <th scope="col" align="center">Комиссия</th>
+    <th scope="col" align="center">Итого к оплате</th>
+  </tr>
+  <!-- <tr *ngFor="let fba of accFba; let i = index; let e = even;" [style.background] = "e ? 'lightgray' : ''"> -->
+  <tr *ngFor="let fba of accFba">
+    <td>{{fba.srv_name}}</td>
+    <td>{{fba.sup_name}}</td>
+    <td align="center">{{fba.cnt_type}}</td>
+    <td align="right">{{fba.rest_b.toFixed(2)}}</td>
+    <td align="right">{{fba.recalc.toFixed(2)}}</td>
+    <td align="right">{{fba.pay_total.toFixed(2)}}</td>
+    <td align="right">{{fba.sum_for_pay.toFixed(2)}}</td>
+    <td align="right">{{fba.sum_af.toFixed(2)}}</td>
+    <td align="right">{{fba.sum_for_pay_total.toFixed(2)}}</td>
+  </tr>
+  </tbody>
+</table>
+<!-- Параметры -->
+<parameters></parameters>
+<!-- Платежи -->
+<pays></pays>
+<!-- Текущий платеж -->
+<payment></payment>
+<!-- Обороты -->
+<fba></fba>
+<!-- Начисления -->
+<charges></charges>
+<!-- Тарифы -->
+<tariffs></tariffs>
+<!-- Счетчики -->
+<counters></counters>
+<!-- Перервсчеты -->
+<recalculations></recalculations>
+<br>
+<footer class="secondary_header footer">
+  <label title="Параметры" class="btn" for="modal-param" width="10%" (click)="getAccParam()"><b>Параметры</b></label>&nbsp;&nbsp;
+  <label title="Платежи" class="btn" for="modal-pays" width="7%" (click)="getAccPays()"><b>Платежи</b></label>&nbsp;&nbsp;
+  <label title="Текуий платеж" class="btn" for="modal-payment" width="7%"><b>Текущий платеж</b></label>&nbsp;&nbsp;
+  <label title="Обороты" class="btn" for="modal-fba" width="7%"><b>Обороты</b></label>&nbsp;&nbsp;
+  <label title="Начисление" class="btn" for="modal-chr" width="7%"(click)="getAccChr()"><b>Начисления</b></label>&nbsp;&nbsp;
+  <label title="Тарифы" class="btn" for="modal-trf" width="7%"><b>Тарифы</b></label>&nbsp;&nbsp;
+  <label title="Счетчики" class="btn" for="modal-cnt" width="7%"(click)="getAccCnt()"><b>Счетчики</b></label>&nbsp;&nbsp;
+  <label title="Перерасчеты" class="btn" for="modal-recalc" width="7%" (click)="getAccRecalc()"><b>Перерасчеты</b></label>
+</footer>
+

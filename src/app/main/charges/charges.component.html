@@ -1,0 +1,44 @@
+<div class="modal">
+  <input class="modal-open" id="modal-chr" type="checkbox" hidden>
+  <div class="modal-wrap" aria-hidden="true" role="dialog">
+    <label class="modal-overlay" for="modal-chr"></label>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2>Нормативы лицевого счета <b>№ {{accId}}</b></h2>
+        <label class="btn-close" for="modal-chr" aria-hidden="true">×</label>
+      </div>
+      <div *ngIf="(accChr != undefined)" class="modal-body">
+        <table width="100%" border="1">
+          <tbody>
+          <tr>
+            <th scope="col" align="center">Услуга</th>
+            <th scope="col" align="center">Поставщик</th>
+            <th scope="col" align="center">Тип тарифа</th>
+            <th scope="col" align="center">Тариф</th>
+            <th scope="col" align="center">Объем</th>
+            <th scope="col" align="center">Ед. изм.</th>
+            <th scope="col" align="center">Норматив</th>
+            <th scope="col" align="center">Дата введения</th>
+            <th scope="col" align="center">Статус</th>
+          </tr>
+          <tr *ngFor="let chr of accChr; let i = index; let e = even;" [style.background] = "e ? 'lightgray' : ''">
+            <td align="left">{{chr.srv_name}}</td>
+            <td align="left">{{chr.sup_name}}</td>
+            <td align="center">{{chr.tariff_type}}</td>
+            <td align="right">{{chr.tariff.toFixed(2)}}</td>
+            <td align="right">{{chr.qty}}</td>
+            <td align="center">{{chr.unit_name}}</td>
+            <td align="right">{{chr.norm.toFixed(2)}}</td>
+            <td align="center">{{chr.date_rec}}</td>
+            <td align="center">{{chr.status}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <label class="btn btn-primary" for="modal-chr">Закрыть</label>
+      </div>
+    </div>
+  </div>
+</div>
+
