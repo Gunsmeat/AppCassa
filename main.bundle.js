@@ -850,15 +850,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ServicesRest = (function () {
+    //restUrl: string = "http://192.168.0.98:8088/CasaTestRest_war/";
+    //restUrl: string = "https://217.13.217.252:8080/CasaTestRest_war/";
     function ServicesRest(http) {
         this.http = http;
-        //ng build -- prod --base-href https://gunsmeat.github.io/AppCassa/
+        //ng build -- prod --base-href "https://gunsmeat.github.io/AppCassa/"
+        //ng build -- prod --base-href "."
         //ngh
         //URL-адрес REST сервера
         //restUrl: string = "http://192.168.0.10:8080/erkc/";
-        //restUrl: string = "http://192.168.0.99:8080/CasaTestRest_war/";
-        //restUrl: string = "http://192.168.0.98:8088/CasaTestRest_war/";
-        this.restUrl = "https://217.13.217.252:8080/CasaTestRest_war/";
+        this.restUrl = "http://192.168.0.99:8080/CasaTestRest_war/";
     }
     // Получение общей информациии о лицевом счете
     ServicesRest.prototype.getAccInfo = function (accId) {
